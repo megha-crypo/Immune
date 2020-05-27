@@ -1,0 +1,330 @@
+{
+  "intents": [
+    {
+      "intent": "pre",
+      "examples": [
+        {
+          "text": "What precautions can i take"
+        },
+        {
+          "text": "precautions"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Type",
+      "examples": [
+        {
+          "text": "exercise i do"
+        },
+        {
+          "text": "What type of exercise I do"
+        },
+        {
+          "text": "What type of exercise I should do"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "351",
+      "examples": [
+        {
+          "text": "25-40"
+        },
+        {
+          "text": "35"
+        },
+        {
+          "text": "My age is 35"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "diab",
+      "examples": [
+        {
+          "text": "diabetes"
+        },
+        {
+          "text": "Yes I am having Diabetes"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "typfood",
+      "examples": [
+        {
+          "text": "What type of food I will take"
+        },
+        {
+          "text": "type of food I will take"
+        },
+        {
+          "text": "food"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Summer",
+      "examples": [
+        {
+          "text": "Summer"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "typedis",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "diabetes",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "blood pressure",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "any other",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "agegroup",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "25-40",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "51-60",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "15-25",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "41-50",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "precau",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Because o Corona Virus. Its better to stay at home and eat healthy food. which enrich in vitamin C. Thank You for Visiting"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1590565150931",
+      "conditions": "#pre",
+      "dialog_node": "node_8_1590565373066"
+    },
+    {
+      "type": "standard",
+      "title": "tydis",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok you try\n•\tBrisk walking\n•\tYoga\n•\tSwimming\n•\tStationery Bicycling\nAny other Suggestion more you want"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1590564483265",
+      "conditions": "#diab",
+      "dialog_node": "node_7_1590564650656"
+    },
+    {
+      "type": "standard",
+      "title": "age",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, Is their any medical issues like diabetes, blood pressure or any other"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1590564429354",
+      "conditions": "#351",
+      "dialog_node": "node_3_1590564483265"
+    },
+    {
+      "type": "standard",
+      "title": "type of exercise",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok tell me your age group, options are\n•\t15-25\n•\t25-40\n•\t41-50\n•\t51-60"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "#Type",
+      "dialog_node": "node_2_1590564429354"
+    },
+    {
+      "type": "standard",
+      "title": "typefood",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "What is climate condition where you are staying"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1590564650656",
+      "conditions": "#typfood",
+      "dialog_node": "node_5_1590565107584"
+    },
+    {
+      "type": "standard",
+      "title": "sum1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok take light food that include curd, lentils , chappati. Any other suggestion u require"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1590565107584",
+      "conditions": "#Summer",
+      "dialog_node": "node_8_1590565150931"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome I am an Immune Boosting System Assistant I will help you in type of exercise you prefer, type of food as per the climate you prefer, What kind of precautions you take. What Assistant you want"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Immune System",
+  "language": "en",
+  "description": ""
+}
